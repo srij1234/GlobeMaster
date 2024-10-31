@@ -1,16 +1,19 @@
 import numpy as np
-import math
 
 def create_rotation_matrix_x(angle):
+    c = np.cos(angle)
+    s = np.sin(angle)
     return np.array([
-        [1, 0, 0],
-        [0, math.cos(angle), -math.sin(angle)],
-        [0, math.sin(angle), math.cos(angle)]
-    ])
+        [1,  0,  0],
+        [0,  c, -s],
+        [0,  s,  c]
+    ], dtype=np.float32)
 
 def create_rotation_matrix_y(angle):
+    c = np.cos(angle)
+    s = np.sin(angle)
     return np.array([
-        [math.cos(angle), 0, math.sin(angle)],
-        [0, 1, 0],
-        [-math.sin(angle), 0, math.cos(angle)]
-    ])
+        [ c, 0,  s],
+        [ 0, 1,  0],
+        [-s, 0,  c]
+    ], dtype=np.float32)
