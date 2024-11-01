@@ -43,26 +43,30 @@ def map_elevation_to_vertices(vertices, tex_coords, elevation_data):
 
     elevation_rows, elevation_cols = elevation_data.shape
 
-    # Normalize elevation data
+    # Normalize elevation data to range [-1, 1]
     elevation_min = np.nanmin(elevation_data)
     elevation_max = np.nanmax(elevation_data)
     elevation_range = elevation_max - elevation_min
     if elevation_range == 0:
         elevation_range = 1  # Prevent division by zero
-    elevation_data = (elevation_data - elevation_min) / elevation_range
+    elevation_data_normalized = (elevation_data - elevation_min) / elevation_range  # Range [0,1]
+    elevation_data_normalized = elevation_data_normalized * 2 - 1  # Range [-1,1]
 
     new_vertices = []
     new_normals = []
     for idx, ((x, y, z), (s, t)) in enumerate(zip(vertices, tex_coords)):
         col = int(s * (elevation_cols - 1))
         row = int((1 - t) * (elevation_rows - 1))  # Flip t
-        elevation = elevation_data[row, col]
+        elevation = elevation_data_normalized[row, col]
         if np.isnan(elevation):
             elevation = 0  # Handle no-data values
 
+        # Apply the requested formula
+        elevation_mapped = abs(elevation) * elevation
+
         # Adjust the radius based on elevation
-        SCALE_FACTOR = 0.1  # Adjust to control relief exaggeration
-        radius = 1 + (elevation * SCALE_FACTOR)
+        SCALE_FACTOR = 0.05  # Adjust to control relief exaggeration
+        radius = 1 + (elevation_mapped * SCALE_FACTOR)
         new_x = x * radius
         new_y = y * radius
         new_z = z * radius

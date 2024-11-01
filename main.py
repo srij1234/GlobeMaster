@@ -20,7 +20,7 @@ from elevation_utils import load_elevation_data
 WIDTH, HEIGHT = 800, 600
 texture_path = r"C:\Users\Dell\Desktop\world_map_texture.jpg"  # Update with your actual texture image file
 elevation_tiff_path = r"C:\Users\Dell\Desktop\Resized.tif" 
-SPHERE_RES = 50  # Adjust for performance; higher values increase detail
+SPHERE_RES = 100  # Adjust for performance; higher values increase detail
 camera_distance = -5  # Start at distance -5 from the globe
 
 MIN_ZOOM = -2  # Prevent zooming in too much
