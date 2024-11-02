@@ -61,7 +61,7 @@ def map_elevation_to_vertices(vertices, tex_coords, elevation_data):
             elevation = 0  # Handle no-data values
 
         # Adjust the radius based on elevation
-        SCALE_FACTOR = 0.1  # Adjust to control relief exaggeration
+        SCALE_FACTOR = 0.2  # Adjust to control relief exaggeration
         radius = 1 + (elevation * SCALE_FACTOR)
         new_x = x * radius
         new_y = y * radius
