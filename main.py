@@ -18,7 +18,7 @@ from elevation_utils import load_elevation_data
 
 # Window setup
 WIDTH, HEIGHT = 800, 600
-texture_path = r"C:\Users\Dell\Desktop\zaza.png"  # Update with your actual texture image file
+texture_path = r"C:\Users\Dell\Desktop\TychoSkymap.t5_04096x02048.jpg"  # Update with your actual texture image file
 elevation_tiff_path = r"C:\Users\Dell\Desktop\Resized.tif"
 SPHERE_RES = 500  # Adjust for performance; higher values increase detail
 camera_distance = -5  # Start at distance -5 from the globe
@@ -46,7 +46,7 @@ def main():
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
     glTranslatef(0.0, 0.0, camera_distance)
-    glClearColor(0.5, 0.7, 1.0, 1.0)  # Light blue background
+    # glClearColor(0.5, 0.7, 1.0, 1.0)  # Light blue background
 
     load_texture(texture_path)
     init_opengl()
