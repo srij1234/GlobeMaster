@@ -18,7 +18,7 @@ from elevation_utils import load_elevation_data
 
 # Window setup
 WIDTH, HEIGHT = 800, 600
-texture_path = r"C:\Users\Dell\Desktop\TychoSkymap.t5_04096x02048.jpg"  # Update with your actual texture image file
+texture_path = r"C:\Users\Dell\Desktop\world_map_texture.jpg"  # Update with your actual texture image file
 elevation_tiff_path = r"C:\Users\Dell\Desktop\Resized.tif"
 SPHERE_RES = 500  # Adjust for performance; higher values increase detail
 camera_distance = -5  # Start at distance -5 from the globe
